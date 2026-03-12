@@ -12,6 +12,7 @@ export type Project = {
   palette: string[];
   metrics: string[];
   year: string;
+  image?: string;
 };
 
 export const projects: Project[] = [
@@ -36,6 +37,7 @@ export const projects: Project[] = [
       "Stronger visual credibility for premium bookings",
     ],
     year: "2024",
+    image: "/projects/tm-event-hire.jpg",
   },
   {
     slug: "hachette-learning",
@@ -80,6 +82,7 @@ export const projects: Project[] = [
       "Faster quote turnaround with 17Hats",
     ],
     year: "2023",
+    image: "/projects/the-bar-people.jpg",
   },
   {
     slug: "assemble-media-group",
@@ -124,6 +127,7 @@ export const projects: Project[] = [
       "Stronger ecommerce browsing confidence",
     ],
     year: "2022",
+    image: "/projects/sanigone.jpg",
   },
   {
     slug: "jhd-builders",

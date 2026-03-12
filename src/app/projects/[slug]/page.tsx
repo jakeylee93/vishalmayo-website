@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { AnimatedSection } from "@/components/animated-section";
 import { ProjectHero } from "@/components/project-hero";
@@ -27,6 +28,22 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
         <ProjectHero project={project} />
       </AnimatedSection>
 
+      {/* Screenshot */}
+      {project.image && (
+        <AnimatedSection delay={0.05}>
+          <div className="overflow-hidden rounded-3xl border border-white/10">
+            <Image
+              src={project.image}
+              alt={`${project.name} website screenshot`}
+              width={1200}
+              height={800}
+              className="w-full object-cover"
+              priority
+            />
+          </div>
+        </AnimatedSection>
+      )}
+
       <AnimatedSection className="grid gap-8 lg:grid-cols-2" delay={0.1}>
         <article className="rounded-3xl border border-white/10 bg-zinc-900/60 p-8">
           <SectionHeading title="The challenge" />
@@ -45,20 +62,9 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
       <AnimatedSection className="space-y-8" delay={0.2}>
         <SectionHeading
-          title="Results and snapshots"
-          description="Outcome indicators and visual placeholders representing key screens and components."
+          title="Results and impact"
+          description="Outcome indicators and key metrics from the project."
         />
-        <div className="grid gap-5 md:grid-cols-3">
-          {[0, 1, 2].map((index) => (
-            <div
-              key={index}
-              className="h-48 rounded-2xl border border-white/10"
-              style={{
-                backgroundImage: `radial-gradient(circle at 22% 20%, ${project.palette[1]}50, transparent 45%), linear-gradient(150deg, ${project.palette[0]}, #18181b 72%)`,
-              }}
-            />
-          ))}
-        </div>
         <div className="grid gap-3 rounded-2xl border border-white/10 bg-zinc-950/60 p-6 sm:grid-cols-3">
           {project.metrics.map((metric) => (
             <p key={metric} className="text-sm text-zinc-300">
