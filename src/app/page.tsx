@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AnimatedSection } from "@/components/animated-section";
-import { ProjectCard } from "@/components/project-card";
+import { ProjectCarousel } from "@/components/project-carousel";
 import { SectionHeading } from "@/components/section-heading";
 import { featuredProjects } from "@/data/projects";
 
@@ -34,11 +34,7 @@ export default function HomePage() {
           eyebrow="Selected Work"
           title="Featured projects built for clarity, confidence, and measurable outcomes"
         />
-        <div className="grid gap-6 md:grid-cols-2">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
+        <ProjectCarousel projects={featuredProjects} />
       </AnimatedSection>
 
       <AnimatedSection className="grid gap-12 rounded-3xl border border-white/10 bg-zinc-900/60 p-8 lg:grid-cols-[1.3fr_1fr] lg:p-12" delay={0.15}>
